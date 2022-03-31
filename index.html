@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: black;
+            align-content: center;
+            text-align: center;
+        }
+        
+        h1 {
+            color: rgb(230, 37, 255);
+            font-weight: bolder;
+            font-size: 82px;
+            margin: 20px;
+            padding: 20px;
+            text-decoration: underline;
+        }
+        
+        .form_style {
+            width: max-content;
+            height: max-content;
+            margin: auto;
+            margin-top: 50px;
+            border: 6px solid rgb(238, 106, 255);
+            border-radius: 10px;
+            padding: 20px;
+            background-color: whitesmoke;
+        }
+        
+        input {
+            width: 100px;
+            background-color: rgb(8, 8, 8);
+            color: white;
+            border: 3px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            padding-left: 12px;
+            padding-right: 12px;
+            font-weight: bold;
+            font-size: 30px;
+        }
+        
+        input:hover {
+            background-color: rgb(230, 37, 255);
+            color: black;
+            border: 5px solid black;
+            font-weight: bolder;
+        }
+        
+        #calculate {
+            width: max-content;
+            background-color: rgb(241, 121, 231);
+            color: black;
+            border: 5px solid black;
+            border-radius: 3px;
+            padding: 20px;
+            margin: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Simple Calculator</h1>
+    <div class="form_style">
+        <form name="myform">
+            <input id="calculate" type="text" name="answer"> <br><br>
+            <input type="button" value="7" onclick="display('7')">
+            <input type="button" value="8" onclick="display('8')">
+            <input type="button" value="9" onclick="display('9')">
+            <input type="button" value="/" onclick="display('/')">
+            <br> <br>
+            <input type="button" value="4" onclick="display('4')">
+            <input type="button" value="5" onclick="display('5')">
+            <input type="button" value="6" onclick="display('6')">
+            <input type="button" value="*" onclick="display('*')">
+            <br> <br>
+            <input type="button" value="1" onclick="display('1')">
+            <input type="button" value="2" onclick="display('2')">
+            <input type="button" value="3" onclick="display('3')">
+            <input type="button" value="-" onclick="display('-')">
+            <br> <br>
+            <input type="button" value="." onclick="display('.')">
+            <input type="button" value="0" onclick="display('0')">
+            <input type="button" value="&radic;" onclick="square_val()">
+            <input type="button" value="+" onclick="display('+')">
+            <br> <br>
+            <input type="button" value="Clr" onclick="clear_all()">
+            <input type="button" value="Ans" onclick="result()" id="equal_to">
+        </form>
+    </div>
+    <script>
+        function display(val) {
+            myform.answer.value += val
+        }
+
+        function clear_all() {
+            alert("You have clicked on Clear All Button.")
+            myform.answer.value = ''
+        }
+
+        function square_val() {
+            num = myform.answer.value
+            myform.answer.value = num * num
+        }
+
+        function result() {
+            ans = eval(myform.answer.value)
+            if (ans == Infinity) {
+                alert("The number is divided by 0.")
+                myform.answer.value = ''
+            } else if (ans == undefined) {
+                alert("Enter some Input.")
+                myform.answer.value = ''
+            } else {
+                myform.answer.value = ans
+            }
+        }
+    </script>
+</body>
+
+</html>
